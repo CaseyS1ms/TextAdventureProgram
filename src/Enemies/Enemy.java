@@ -1,6 +1,8 @@
+package Enemies;
 
+import Characters.Character ;
 
-public class Enemy extends Character
+public abstract class Enemy extends Character
 {
 
     int reward;
@@ -11,9 +13,5 @@ public class Enemy extends Character
         this.reward = reward;
     }
 
-    @Override
-    void attack(Character target)
-    {
 
-    }
 }

@@ -1,3 +1,5 @@
+package Characters;
+
 public abstract class Character
 {
     private int health;
@@ -5,7 +7,7 @@ public abstract class Character
     private int attackPower;
 
 
-    Character(int health,int attackPower, String name)
+    public Character(int health,int attackPower, String name)
     {
         this.health = health;
         this.attackPower = attackPower;

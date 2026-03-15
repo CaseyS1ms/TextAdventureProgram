@@ -1,3 +1,8 @@
+import Characters.Character;
+import Characters.Player;
+import Enemies.Goblin;
+import Enemies.Troll;
+
 import java.util.ArrayList;
 
 import java.util.Random;
@@ -6,10 +11,10 @@ import java.util.Scanner;
 public class Game
 {
     Room room;
-    ArrayList<Character> enemiesList;
+    ArrayList<Characters.Character> enemiesList;
 
-    Character player = new Player();
-    Character goblin = new Goblin();
+    Characters.Character player = new Player();
+    Characters.Character goblin = new Goblin();
 
     Scanner scanner = new Scanner(System.in);
     Random rand = new Random();
@@ -63,7 +68,7 @@ public class Game
     }
 
 
-    public void enemyEncounter(Character type)
+    public void enemyEncounter(Characters.Character type)
     {
         int enemyHealth = type.getHealth();
 
@@ -92,15 +97,15 @@ public class Game
 
     }
 
-    public boolean isDead(Character type)
+    public boolean isDead(Characters.Character type)
     {
         return type.getHealth() <= 0;
     }
 
-    public ArrayList<Character> enemiesListInit()
+    public ArrayList<Characters.Character> enemiesListInit()
     {
         enemiesList = new ArrayList<>();
-        Character goblin = new Goblin();
+        Characters.Character goblin = new Goblin();
         Character troll = new Troll();
         enemiesList.add(goblin);
         enemiesList.add(troll);
