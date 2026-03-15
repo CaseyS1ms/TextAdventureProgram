@@ -28,7 +28,7 @@ public abstract class Character
 
     public void takeDamage(int damageAmount) {
         this.health = health - damageAmount;
-        System.out.println("Damage taken -" + damageAmount + " hitpoints");
+        System.out.println("DEBUG: Damage taken -" + damageAmount + " hitpoints");
     }
 
 

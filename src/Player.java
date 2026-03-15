@@ -9,7 +9,7 @@ public class Player extends Character
 
 
 
-    Player()
+    public Player()
     {
         super(100, 20, "Player");
     }
@@ -18,5 +18,6 @@ public class Player extends Character
     void attack(Character target)
     {
         target.takeDamage(this.getAttackPower());
+        System.out.println("Dealt " + this.getAttackPower() + " Damage");
     }
 }
