@@ -1,5 +1,7 @@
 package Characters;
 
+import Items.Weapon;
+
 public abstract class Character
 {
     private int health;
@@ -14,7 +16,7 @@ public abstract class Character
         this.name = name;
     }
 
-    abstract void attack(Character target);
+    abstract public void attack(Character target, Weapon weapon);
 
     public String getName() {
         return name;
