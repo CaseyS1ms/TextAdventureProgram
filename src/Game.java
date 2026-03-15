@@ -1,14 +1,27 @@
+import java.util.ArrayList;
+
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game
 {
     Room room;
+    ArrayList<Character> enemiesList;
+
     Character player = new Player();
     Character goblin = new Goblin();
+
     Scanner scanner = new Scanner(System.in);
+    Random rand = new Random();
+
 
     public void mainLoop()
     {
+        //ON LOAD
+        enemiesListInit();
+
+
+        //
         System.out.println("Welcome to the Text Adventure Game\n1. Start Game\n2. Exit Game");
 
         int input = scanner.nextInt();
@@ -23,7 +36,7 @@ public class Game
                     System.out.println("There are " + room.getExits() + " exits in this room");
                     if (room.HasEnemy()) {
                         System.out.println("There is an enemy in this room");
-                        enemyEncounter(goblin);
+                        enemyEncounter(enemiesList.get(rand.nextInt(enemiesList.size())));
                     } else {
                         System.out.println("There isn't an enemy in this room");
                     }
@@ -52,13 +65,14 @@ public class Game
 
     public void enemyEncounter(Character type)
     {
-        System.out.println("you have come across a " + type.getName() + " what do you do\n1. Attack\n2. Run");
-
-        int inputAttack = scanner.nextInt();
-        scanner.nextLine();
+        int enemyHealth = type.getHealth();
 
         while(!isDead(type))
         {
+            System.out.println("you have come across a " + type.getName() + " what do you do\n1. Attack\n2. Run");
+
+            int inputAttack = scanner.nextInt();
+            scanner.nextLine();
 
             switch (inputAttack)
             {
@@ -71,16 +85,28 @@ public class Game
 
             }
 
-            inputAttack = scanner.nextInt();
-            scanner.nextLine();
+
         }
         System.out.println("You have defeated the " + type.getName());
+        type.setHealth(enemyHealth);
 
     }
 
     public boolean isDead(Character type)
     {
         return type.getHealth() <= 0;
+    }
+
+    public ArrayList<Character> enemiesListInit()
+    {
+        enemiesList = new ArrayList<>();
+        Character goblin = new Goblin();
+        Character troll = new Troll();
+        enemiesList.add(goblin);
+        enemiesList.add(troll);
+
+
+        return enemiesList;
     }
 
 }

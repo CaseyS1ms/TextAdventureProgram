@@ -31,5 +31,10 @@ public abstract class Character
         System.out.println("DEBUG: Damage taken -" + damageAmount + " hitpoints");
     }
 
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
+
 
 }
