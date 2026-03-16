@@ -25,17 +25,18 @@ public class Player extends Character
     }
 
     @Override
-    public void attack(Character target, Weapon weapon)
+    public String attack(Character target, Weapon weapon)
     {
         int damageDealt = this.getAttackPower();
         if(weapon != null)
         {
             damageDealt = this.getAttackPower() + weapon.getDamage();
+
         }
 
 
         target.takeDamage(damageDealt);
-        System.out.println("Dealt " + damageDealt + " Damage");
+        return "Dealt " + damageDealt + " Damage";
     }
 
     public void pickUpItem(Item item)

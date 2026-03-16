@@ -16,7 +16,7 @@ public abstract class Character
         this.name = name;
     }
 
-    abstract public void attack(Character target, Weapon weapon);
+    abstract public String attack(Character target, Weapon weapon);
 
     public String getName() {
         return name;
@@ -30,9 +30,9 @@ public abstract class Character
         return health;
     }
 
-    public void takeDamage(int damageAmount) {
+    public String takeDamage(int damageAmount) {
         this.health = health - damageAmount;
-        System.out.println("DEBUG: Damage taken -" + damageAmount + " hitpoints");
+        return "DEBUG: Damage taken -" + damageAmount + " hitpoints";
     }
 
     public void setHealth(int health)

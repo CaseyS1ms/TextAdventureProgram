@@ -11,9 +11,11 @@ public class Goblin extends Enemy
     }
 
     @Override
-    public void attack(Character target, Weapon weapon)
+    public String attack(Character target, Weapon weapon)
     {
         target.takeDamage(this.getAttackPower());
         target.takeDamage(this.getAttackPower());
+
+        return "The Goblin Attacked you twice and you were hit for 10 hitpoints";
     }
 }

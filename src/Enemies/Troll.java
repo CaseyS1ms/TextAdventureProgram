@@ -5,11 +5,14 @@ import Items.Weapon;
 
 public class Troll extends Enemy {
     public Troll() {
-        super(120, 10, "Troll", 50);
+        super(120, 20, "Troll", 50);
     }
 
     @Override
-    public void attack(Character target, Weapon weapon) {
+    public String attack(Character target, Weapon weapon) {
+        target.takeDamage(20);
+
+        return "you were hit for " + this.getAttackPower() + "your new health is" + target.getHealth();
 
     }
 }
